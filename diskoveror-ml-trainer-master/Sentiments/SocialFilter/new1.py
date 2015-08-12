@@ -65,8 +65,9 @@ class TweetsExtract(object):
                     if wordFromList1 and wordFromList2:
                         s=wordFromList1[0].wup_similarity(wordFromList2[0])
                         list2.append(s)
-                print list2
+                print word1
                 print(max(list2))
+		del list2[:]
 
         #getkeys(out,list1)
         
