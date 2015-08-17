@@ -24,7 +24,7 @@ path = cmd_folder+"/models/"
 stoppath = "SmartStoplist.txt"
 rake_object = rake.Rake(stoppath,4,2,1)
 stop = stopwords.words('english')
-list1=['skin','skincare','care']
+list1=['skin','skincare','care','business','intelligence']
 list2=[0.0]
 
 class TweetsExtract(object):
@@ -40,15 +40,15 @@ class TweetsExtract(object):
     def process(self,stopwordsF = 0, stemmerF = 0, encode = 1):
 
 
-        f=open('twittersearchconnector.dat','r')
+        f=open('twitter.csv','r')
         for line in iter(f):
             item=line.rstrip()
-            new=item.split('|')
-            tweet=new[4]
+            #new=item.split('|')
+            #tweet=new[4]
             #print tweet
             #print "_____"
     # remove URL
-            line = re.sub(twokenize.Url_RE," ", tweet)
+            line = re.sub(twokenize.Url_RE," ", item)
 
     # to strip of extra white spaces
             temp = line.replace("#" , " ").lower().split()
@@ -78,11 +78,11 @@ class TweetsExtract(object):
         
     #print tweet
 
-        tempTweet = ""
+        #tempTweet = ""
 
 
 
-        for word in twokenize.tokenize(temp):
+        #for word in twokenize.tokenize(temp):
             """
                 except:
                     tempTweet = " ".join([tempTweet,word.strip().decode("iso-8859-1")])
@@ -92,8 +92,8 @@ class TweetsExtract(object):
         
 
     #print(tempTweet.encode("utf-8"))
-        if encode == 0:
-            return(tempTweet)
+        #if encode == 0:
+            #return(tempTweet)
     #return(tempTweet.encode("utf-8"))
         return(max(list2))
 

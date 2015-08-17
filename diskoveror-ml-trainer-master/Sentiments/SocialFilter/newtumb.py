@@ -24,7 +24,7 @@ path = cmd_folder+"/models/"
 stoppath = "SmartStoplist.txt"
 rake_object = rake.Rake(stoppath,4,2,1)
 stop = stopwords.words('english')
-list1=['skin','skincare','care']
+list1=['skin','skincare','care','business','intelligence']
 list2=[0.0]
 
 class TweetsExtract(object):
@@ -40,20 +40,20 @@ class TweetsExtract(object):
     def process(self,stopwordsF = 0, stemmerF = 0, encode = 1):
 
 
-        f=open('twittersearchconnector.dat','r')
+        f=open('tumblr.txt','r')
         for line in iter(f):
             item=line.rstrip()
-            new=item.split('|')
-            tweet=new[4]
+            #new=item.split('|')
+            #tweet=new[4]
             #print tweet
             #print "_____"
     # remove URL
-            line = re.sub(twokenize.Url_RE," ", tweet)
+            line = re.sub(twokenize.Url_RE," ", item)
 
     # to strip of extra white spaces
             temp = line.replace("#" , " ").lower().split()
             temp = " ".join(temp)
-            print "TWEET:"
+            print "TUMBLR POST:"
             print temp
             out=[i for i in temp.split() if i not in stop]
             
